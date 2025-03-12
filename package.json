@@ -1,0 +1,14 @@
+{
+  "name": "ctf",
+  "version": "0.0.1",
+  "description": "CTF website",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Thomas van der Plas",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
