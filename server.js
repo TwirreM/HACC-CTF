@@ -6,12 +6,31 @@ const app = express()
 app.use(express.json())
 const config = require('./public/config')
 
-const flavor_texts = require('./public/flavour_texts')
-
-const handed_in_flags = {}
-const start_time = Date.now();
-
+const flavorTexts = require('./public/flavour_texts')
 const flags = parse(fs.readFileSync(path.resolve('./flags.csv')), {columns: true, autoParse: true})
+
+let handedInFlags = {}
+let startTime = Date.now();
+readFromBackup();
+
+function readFromBackup() {
+  if (fs.existsSync(path.resolve('./backup.json'))) {
+    console.log("reading backed up state")
+    const state = JSON.parse(fs.readFileSync(path.resolve('./backup.json')))
+
+    handedInFlags = state.handedInFlags
+    startTime = state.startTime
+  }
+}
+
+async function backup() { 
+  const state = {
+    handedInFlags, 
+    startTime,
+  }
+
+  await fs.writeFile(path.resolve("./backup.json"), JSON.stringify(state), () => { console.log("Backup complete") })
+}
 
 app.use(express.static('public'))
 
@@ -43,13 +62,13 @@ app.post("/submit", (req, res) => {
   }
 
   // Create user if not yet exists
-  if (!handed_in_flags[user]) handed_in_flags[user] = {};
+  if (!handedInFlags[user]) handedInFlags[user] = {};
 
-  const flavor_text = flavor_texts[Math.floor(Math.random() * flavor_texts.length)];
+  const flavor_text = flavorTexts[Math.floor(Math.random() * flavorTexts.length)];
 
   const f = flags.find(x => x.flag == flag) 
   if (f) {
-    if(handed_in_flags[user][flag]) {
+    if(handedInFlags[user][flag]) {
       res.send({
         accepted: false, 
         reason: "Flag already redeemed for user"
@@ -57,12 +76,13 @@ app.post("/submit", (req, res) => {
       return
     }
     else {
-      handed_in_flags[user][flag] = { time: Date.now(), score: parseInt(f.score) };
+      handedInFlags[user][flag] = { time: Date.now(), score: parseInt(f.score) };
       res.send({ 
         accepted: true, 
         score: f.score,
         flavor_text, 
       })
+      backup() 
       return
     }
   }
@@ -76,11 +96,11 @@ app.post("/submit", (req, res) => {
 })
 
 app.get('/standings', (req, res) => { 
-  const standings = Object.entries(handed_in_flags)
+  const standings = Object.entries(handedInFlags)
     .map(([user, score]) => ({
       user, 
       score: Object.values(score).reduce((acc, curr) => acc + curr.score, 0), 
-      total_time: Math.round(Object.values(score).reduce((acc, curr) => acc + (curr.time - start_time), 0) / 1000)
+      total_time: Math.round(Object.values(score).reduce((acc, curr) => acc + (curr.time - startTime), 0) / 1000)
     })) 
     .sort((a, b) => {
       if (a.score != b.score) return a.score - b.score
