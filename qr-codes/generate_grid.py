@@ -50,7 +50,7 @@ for row in grid:
         qr_image = qr.make_image(fill="black", back_color="white")
         
         # Save the image to a temporary file
-        qr_image_path = "./qr-codes/" + text + ".png"
+        qr_image_path = "./" + text + ".png"
         qr_image.save(qr_image_path)
 
         # Add the image to the PDF
