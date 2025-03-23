@@ -101,6 +101,26 @@
     button:hover {
       background: #066401;
     }
+
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #2a2a2a;
+      padding: 10px;
+      text-align: center;
+      font-size: 0.9em;
+    }
+    
+    .footer a {
+      color: #0b6200;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    
+    .footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -125,10 +145,15 @@
   </div>
   
   <div id="submissions" class="submissions content">
-    <input type="text" id="user_input" placeholder="Username">
-    <input type="text" id="flag_input" placeholder="Flag">
+    <input maxlength="16" type="text" id="user_input" placeholder="Username">
+    <input maxlength="12" type="text" id="flag_input" placeholder="Flag">
     <button onclick="onSubmit()">Submit</button>
     <div id="message" class="message"></div>
+  </div>
+
+  <div class="footer">
+    <a href="/sitemap.txt">Sitemap</a> | 
+    <a href="/disclaimer.txt">Disclaimer</a>
   </div>
   
   <script>
@@ -170,7 +195,7 @@
       
       const result = await response.json();
       if (result.accepted) {
-        messageDiv.textContent = "Submission accepted!";
+        messageDiv.textContent = `Submission accepted! Got ${result.score} points`;
         messageDiv.className = "message success";
         document.getElementById('flag_input').value = '';
         fetchLeaderboard();

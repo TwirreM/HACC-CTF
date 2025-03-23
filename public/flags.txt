@@ -1,0 +1,119 @@
+Hmm, it seems like a Certified Good(TM) ctf flag got lost in this pile of random flags. I don't exactly remember what
+the code was, but I do seem to remember some properties.
+
+The sum of the digits was a prime number.
+The first digit was an odd number.
+The last digit was even.
+The difference between the highest and lowest digit was at least 6.
+No digit appeared more than twice in the code.
+The number formed by the first three digits was divisible by 3.
+The number formed by the last three digits was divisible by 4.
+The fourth digit was greater than the second digit.
+The middle two digits added up to an odd number.
+
+ctf_12345678
+ctf_87654321
+ctf_10293847
+ctf_56473829
+ctf_90817263
+ctf_73645128
+ctf_29183746
+ctf_47583910
+ctf_68421097
+ctf_32918475
+ctf_56983214
+ctf_81726354
+ctf_45678123
+ctf_23456789
+ctf_98765432
+ctf_74185296
+ctf_15926348
+ctf_75395184
+ctf_36925814
+ctf_84261357
+ctf_23498761
+ctf_65748392
+ctf_19384756
+ctf_28475619
+ctf_91283746
+ctf_83746591
+ctf_46591273
+ctf_78459623
+ctf_64938257
+ctf_50382916
+ctf_47183926
+ctf_68359472
+ctf_91384726
+ctf_57482931
+ctf_86239514
+ctf_31749285
+ctf_45268179
+ctf_62958431
+ctf_31894762
+ctf_95837461
+ctf_82934765
+ctf_41583692
+ctf_74625183
+ctf_94826175
+ctf_73168452
+ctf_58647291
+ctf_93482716
+ctf_12948376
+ctf_25764831
+ctf_64829173
+ctf_81246795
+ctf_54673829
+ctf_28374156
+ctf_64912758
+ctf_73521984
+ctf_41596273
+ctf_37284915
+ctf_27481953
+ctf_61539284
+ctf_89134627
+ctf_56147298
+ctf_47382915
+ctf_39748512
+ctf_29384716
+ctf_78592341
+ctf_46382957
+ctf_15839472
+ctf_92467581
+ctf_83267415
+ctf_29183754
+ctf_69418273
+ctf_17384926
+ctf_59283714
+ctf_34872940
+ctf_84623957
+ctf_21374895
+ctf_56194728
+ctf_39527186
+ctf_81937426
+ctf_23469185
+ctf_64521973
+ctf_92751468
+ctf_84297513
+ctf_56139274
+ctf_17482953
+ctf_94821637
+ctf_71639485
+ctf_57218439
+ctf_81469257
+ctf_23198764
+ctf_69751238
+ctf_51376249
+ctf_24895731
+ctf_92761583
+ctf_71584932
+ctf_43159827
+ctf_38275914
+ctf_69481237
+ctf_24736581
+ctf_51248396
+ctf_97815234
+ctf_82479135
+ctf_15982734
+ctf_73158946
+ctf_62719385
+ctf_12378945

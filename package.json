@@ -9,6 +9,7 @@
   "author": "Thomas van der Plas",
   "license": "ISC",
   "dependencies": {
+    "csv-parse": "^5.6.0",
     "express": "^4.21.2"
   }
 }

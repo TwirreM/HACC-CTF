@@ -1,6 +1,6 @@
 module.exports = [
   "Submission received successfully",
-  "Keep trying, maybe you'll get a flag!",
+  "Keep trying, maybe you'll get an extra flag!",
   "Great job!", 
   "Hmmmmmmm flag", 
   "The fitness gram pacer test is a multi-stage aerobic capacity test", 
